@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload='display()'>
+    <h2>Caro Game Simple</h2>
+    <hr color='grey' />
+    <div id="caro" onload_Window='display()'></div>
+    <br />
+    <input type="button" onclick="change()" value="Change value" />
+    <script>
+      let caro = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ];
+
+      function change() {
+        let x = +prompt("Enter row");
+        let y = +prompt("Enter column");
+        caro[x][y] = "x";
+        display();
+      }
+      function display() {
+        let e = "";
+        for (let i in caro) {
+          for (let j in caro[i]) {
+            e += caro[i][j] + "&emsp;";
+          }
+          e += "<br>";
+        }
+        document.getElementById('caro').innerHTML= e;
+        // không thể chuyển mảng thành chuỗi rồi hiển thị ra vì mảng lúc này thành chuỗi nên không thể gán phương thức của mảng cho chuỗi
+        // for (let i in caro) {
+        //     caro[i] = caro[i].join('&emsp;')
+        // }
+        // caro = caro.join('<br>');
+        // document.getElementById("caro").innerHTML = caro;
+      }
+    </script>
+  </body>
+</html>
